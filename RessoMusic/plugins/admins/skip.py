@@ -7,7 +7,7 @@ from RessoMusic.core.call import AMBOTOP
 from RessoMusic.misc import db
 from RessoMusic.utils.database import get_loop
 from RessoMusic.utils.decorators import AdminRightsCheck
-from RessoMusic.utils.inline import close_markup, stream_markup
+from RessoMusic.utils.inline import close_markup, aq_markup as stream_markup
 from RessoMusic.utils.stream.autoclear import auto_clean
 from RessoMusic.utils.thumbnails import gen_thumb
 from config import BANNED_USERS
