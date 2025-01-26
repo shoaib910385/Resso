@@ -19,7 +19,7 @@ from RessoMusic.utils.database import (
 )
 from RessoMusic.utils.decorators.language import languageCB
 from RessoMusic.utils.formatters import seconds_to_min
-from RessoMusic.utils.inline import close_markup, aq_markup as stream_markup, stream_markup_timer
+from RessoMusic.utils.inline import close_markup, aq_markup, stream_markup_timer
 from RessoMusic.utils.stream.autoclear import auto_clean
 from RessoMusic.utils.thumbnails import gen_thumb
 from config import (
@@ -226,7 +226,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 await AMBOTOP.skip_stream(chat_id, link, video=status, image=image)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
-            button = stream_markup(_, chat_id)
+            button = aq_markup(_, chat_id)
             img = await gen_thumb(videoid)
             run = await CallbackQuery.message.reply_photo(
                 photo=img,
@@ -262,7 +262,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 await AMBOTOP.skip_stream(chat_id, file_path, video=status, image=image)
             except:
                 return await mystic.edit_text(_["call_6"])
-            button = stream_markup(_, chat_id)
+            button = aq_markup(_, chat_id)
             img = await gen_thumb(videoid)
             run = await CallbackQuery.message.reply_photo(
                 photo=img,
@@ -283,7 +283,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 await AMBOTOP.skip_stream(chat_id, videoid, video=status)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
-            button = stream_markup(_, chat_id)
+            button = aq_markup(_, chat_id)
             run = await CallbackQuery.message.reply_photo(
                 photo=STREAM_IMG_URL,
                 caption=_["stream_2"].format(user),
@@ -307,7 +307,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
             if videoid == "telegram":
-                button = stream_markup(_, chat_id)
+                button = aq_markup(_, chat_id)
                 run = await CallbackQuery.message.reply_photo(
                     photo=TELEGRAM_AUDIO_URL
                     if str(streamtype) == "audio"
@@ -320,7 +320,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             elif videoid == "soundcloud":
-                button = stream_markup(_, chat_id)
+                button = aq_markup(_, chat_id)
                 run = await CallbackQuery.message.reply_photo(
                     photo=SOUNCLOUD_IMG_URL
                     if str(streamtype) == "audio"
@@ -333,7 +333,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             else:
-                button = stream_markup(_, chat_id)
+                button = aq_markup(_, chat_id)
                 img = await gen_thumb(videoid)
                 run = await CallbackQuery.message.reply_photo(
                     photo=img,
