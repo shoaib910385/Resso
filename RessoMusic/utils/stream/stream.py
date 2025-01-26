@@ -194,7 +194,7 @@ async def stream(
                 forceplay=forceplay,
             )
             img = await gen_thumb(vidid)
-            button = stream_markup(_, chat_id)
+            button = aq_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
                 photo=img,
@@ -248,7 +248,7 @@ async def stream(
                 "audio",
                 forceplay=forceplay,
             )
-            button = stream_markup(_, chat_id)
+            button = aq_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
                 photo=config.SOUNCLOUD_IMG_URL,
@@ -302,7 +302,7 @@ async def stream(
             )
             if video:
                 await add_active_video_chat(chat_id)
-            button = stream_markup(_, chat_id)
+            button = aq_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
                 photo=config.TELEGRAM_VIDEO_URL if video else config.TELEGRAM_AUDIO_URL,
@@ -363,7 +363,7 @@ async def stream(
                 forceplay=forceplay,
             )
             img = await gen_thumb(vidid)
-            button = stream_markup(_, chat_id)
+            button = aq_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
                 photo=img,
@@ -419,7 +419,7 @@ async def stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            button = stream_markup(_, chat_id)
+            button = aq_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
                 photo=config.STREAM_IMG_URL,
