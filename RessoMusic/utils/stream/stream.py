@@ -162,7 +162,7 @@ async def stream(
                 user_name,
                 vidid,
                 user_id,
-                "video" if video else "audio",
+                "video" if video else "audio"
             )
             position = len(db.get(chat_id)) - 1
             button = aq_markup(_, chat_id)
@@ -275,7 +275,7 @@ async def stream(
                 user_name,
                 streamtype,
                 user_id,
-                "video" if video else "audio",
+                "video" if video else "audio"
             )
             position = len(db.get(chat_id)) - 1
             button = aq_markup(_, chat_id)
