@@ -385,8 +385,9 @@ async def markup_timer():
                         seconds_to_min(playing[0]["played"]),
                         playing[0]["dur"],
                     )
+                    buttonxxx = aq_markup(_, chat_id)
                     await mystic.edit_reply_markup(
-                        reply_markup=InlineKeyboardMarkup(buttons)
+                        reply_markup=InlineKeyboardMarkup(buttonxxx)
                     )
                 except:
                     continue
